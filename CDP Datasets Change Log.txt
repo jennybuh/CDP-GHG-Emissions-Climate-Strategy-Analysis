@@ -1,0 +1,188 @@
+## Cleaning applied to all datasets
+
+    * Renamed columns so all datasets with the same values/topics are uniform 
+    * Cleaned up extraneous characters 
+    * Removed population year 
+    * Emissions occurring outside city boundary (metric tonnes CO2e) for Total Generation of grid supplied energy (Renamed to Other)
+    * Values that are 0 or - for Accounting_year replaced with NULL 
+    * Accounting_year changed to Inv_year 
+    * Simplified Inv_year to just 1 year 
+
+-------------------------------------
+
+##2022 City Plans Dataset 
+
+
+## ADDED 
+
+    *City column with blanks, input the city name using the org_name, the org_name column notes the city.
+    *Added state column using org_name, org_name column notes state.
+
+## MISSING VALUES 
+
+    * Cities for organizations input where possible, otherwise left null
+    * Org_names with both a city and county listed, inputed city name for city
+    * State values for organizations input where possible, otherwise left null
+
+## REMOVED
+
+/* Extraneous columns not pertaining to business task (descriptors not important to defining emissions, demographic information, or policy-related information)*/
+    * Questionnaire
+    * Reporting year ##the dataset year is identified by the file name 
+    * Access 
+    * Last update 
+    * CDP Region ## Country of origin is US, column not needed.
+    * Attachment/link and name of plan
+    * Confirm attachment/link provided
+	
+	* Filtered out countries that are not the United States, removed these rows from the dataset 
+
+
+## CHANGED 
+
+/* Renamed columns for ease of analysis and querying */ 
+	* Replaced spaces with underscores for ease of querying 
+	* Replaced special characters with standard characters (e.g., accent marks)
+	* Adjusted values within Inv_year that have a range to reflect the year the value started in 
+
+## Other
+
+Sorted, and reviewed range of values for all columns to identify for outlier data (especially numeric). None found.
+Used =MAX(LENGTH()) to identify max cell characters to create limit for SQL table.
+
+
+---------------------------------------------------------------
+
+##2017 - 2022 City Emissions Datasets 
+##Applied the same cleaning process for all these years' datasets
+
+## ADDED 
+
+    * City column with blanks, input the city name using the org_name, the org_name column notes the city.
+    * Added state column using org_name, org_name column notes state
+    * Total_em column summing emissions of Scopes 1-3 (Scope1, Scope2, and Outside_Jurisdiction)
+ 
+
+## MISSING VALUES 
+
+    * Cities for organizations input where possible, otherwise left null
+    * Org_names with both a city and county listed, inputed city name for city
+    * State values for organizations input where possible, otherwise left null
+
+
+## CHANGED 
+
+/* Renamed columns for ease of analysis and querying */ 
+	* Replaced spaces with underscores for ease of querying 
+	* Shortened Emissions to Em
+	* Formatted city values by removing "town, city, etc" to reflect just the city name
+
+
+## REMOVED
+
+/* Extraneous columns not pertaining to business task (descriptors not important to defining emissions, demographic information, or policy-related information)*/
+
+    * Questionnaire
+    * CDP Region ## Country of origin is US, column not needed.
+    * Access
+    * Number of times reporting 
+    * Last updated
+    * G40_City
+    * GCoM_City
+    * Emissions reporting framework or protocol 
+    * Emissions Question
+    * Emissions question name 
+    * Inventory tool 
+    * Emissions Row Number 
+    * Emissions Row Name
+    * Emissions description
+    * Emissions Data Group
+    * Emissions rank 
+	
+    * Filtered out countries that are not the United States, removed these rows from the dataset 
+
+## Other
+Sorted, and reviewed range of values for all columns to identify for outlier data (especially numeric). None found.
+Used =MAX(LENGTH()) to identify max cell characters to create limit for SQL table.
+
+------------------------------------------------
+
+2021 Cities Reduction Targets
+
+## ADDED
+
+## REMOVED
+
+/* Extraneous columns not pertaining to business task (descriptors not important to defining emissions, demographic information, or policy-related information)*/
+
+    * Year Reported to CDP
+    * CDP Region
+    * Access
+    * City boundary
+    * Identify and explain sources that differ from the inventory
+    * Target boundary relative to city boundary
+    * Projected population in target year
+    * Intensity unit (Emissions per)
+    * Estimated business as usual absolute emissions in target year (metric tonnes CO2e)
+    * Percentage of target achieved so far
+    * Select the initiatives that this target contributes towards
+    * Description of the target and the modelling methodology(ies) and parameters used to define it
+    * Does this target align with the global 1.5 - 2Â°c pathway set out in the Paris Agreement?
+    * Does this target align or correspond to a requirement from a higher level of government?
+    * Target description
+
+## CHANGED 
+
+    * Values within Sector column for ease of querying 
+    /* Renamed columns for ease of analysis and querying, also to match primary tables with em data */ 
+    * Replaced spaces with underscores for ease of querying 
+    * Shortened Emissions to Em
+
+
+## ADDED 
+
+    * City column with blanks, input the city name using the org_name, the org_name column notes the city.
+    * Added state column using org_name, org_name column notes state.
+    * Total_em column summing emissions of Scopes 1-3 (Scope1, Scope2, and Outside_Jurisdiction)
+        * Where Scopes 1 -3 columns empty, but categorized emissions provided in other columns, calculated total_em from these columns
+ 
+
+## MISSING VALUES 
+
+    * Cities for organizations input where possible, otherwise left null
+    * Org_names with both a city and county listed, inputed city name for city
+    * State values for organizations input where possible, otherwise left null
+
+## CHANGED 
+
+/* Renamed columns for ease of analysis and querying */ 
+	* Replaced spaces with underscores for ease of querying 
+	* Shortened Emissions to Em
+	* Formatted city values by removing "town, city, etc" to reflect just the city name
+
+
+## REMOVED
+
+/* Extraneous columns not pertaining to business task (descriptors not important to defining emissions, demographic information, or policy-related information)*/
+
+    * Questionnaire
+    * CDP Region -- Country of origin is US, column not needed.
+    * Access
+    * Number of times reporting 
+    * Last updated
+    * G40_City
+    * GCoM_City
+    * Emissions reporting framework or protocol 
+    * Emissions Question
+    * Emissions question name 
+    * Inventory tool 
+    * Emissions Row Number 
+    * Emissions Row Name
+    * Emissions description
+    * Emissions Data Group
+    * Emissions rank 
+    * Filtered out countries that are not the United States, removed these rows from the dataset 
+
+## Other
+Sorted, and reviewed range of values for all columns to identify for outlier data (especially numeric). None found.
+Used =MAX(LENGTH()) to identify max cell characters to create limit for SQL table.
