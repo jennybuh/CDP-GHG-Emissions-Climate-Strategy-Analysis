@@ -1,4 +1,4 @@
-# CDP-Emissions-Climate-Strategy-Analysis
+# CDP-GHG-Emissions-Climate-Strategy-Analysis
 
 This data analysis project is a passion project, and of a topic that is very close to my heart.
 The project is primarily a descriptive analysis that examines historical data to identify linear trends.
