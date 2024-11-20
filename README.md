@@ -10,7 +10,7 @@ I worked independently for 5 weeks to outline the project, extract, clean, and v
 
 The datasets for city/organization emission, climate strategy plans, and emission reduction targets were obtained from the CDP’s public database.
 
-Excel, SQL, and Tableau were used in combination to complete this projejct.
+Excel, SQL, and Tableau were used in combination to complete this project.
 
 The results from the analysis show that from their most recently reported emission year, 76% of the cities/organizations had a decrease in 
 total annual emission amounts relative to their designated baseline year for emissions. The other 24% of showed an increase. 
